@@ -3,7 +3,7 @@
 'use client'; // ক্লায়েন্ট কম্পোনেন্ট ডিরেক্টিভ যুক্ত করা হলো
 
 import React, { createContext, useState, useContext, ReactNode } from 'react';
-import toast from 'react-hot-toast'; 
+import toast from 'react-hot-toast';
 
 // === ১. ট্রান্সলেশন অবজেক্টের জন্য ইন্টারফেস ===
 interface Translation {
@@ -140,21 +140,37 @@ interface LanguageProviderProps {
 }
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
+
+
+const slideBounceToast = (message: string, bgColor: string, textColor: string = 'white') => {
+  toast.success(message, {
+    duration: 2000,
+    position: 'top-center',
+    style: {
+      backgroundColor: bgColor,
+      color: textColor,
+      fontWeight: 'bold',
+      borderRadius: '8px',
+      padding: '12px 16px',
+      maxWidth: '90vw',
+      textAlign: 'center',
+      margin: '0 auto',
+    },
+    className: 'animate-slide-bounce-fade',
+  });
+};
+
     const [currentLang, setCurrentLang] = useState<'bn' | 'en'>('bn');
 
-    const setLanguage = (lang: 'bn' | 'en') => {
-        setCurrentLang(lang);
-        
-        if (lang === 'bn') {
-            toast.success('ভাষা পরিবর্তন করে বাংলা করা হলো।', { 
-                position: 'top-left' 
-            });
-        } else {
-            toast.success('Language changed to English.', { 
-                position: 'top-left' 
-            });
-        }
-    };
+const setLanguage = (lang: 'bn' | 'en') => {
+  setCurrentLang(lang);
+
+  if (lang === 'bn') {
+    slideBounceToast('ভাষা পরিবর্তন করে বাংলা করা হলো।', '#008037');
+  } else {
+     slideBounceToast('Language changed to English.', '#0066cc');
+  }
+};
 
     const contextValue: LanguageContextType = {
         currentLang,
