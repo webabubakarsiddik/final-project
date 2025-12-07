@@ -118,7 +118,7 @@ const PublicHeader: React.FC = () => {
 
             <div
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-xs px-3 py-2 cursor-pointer hover:text-[#008037]"
+              className="text-xs cursor-pointer hover:text-[#008037]"
             >
               {mobileMenuOpen ? <X className="text-lg" /> : <Tally3 className="text-lg" />}
               {mobileMenuOpen && (

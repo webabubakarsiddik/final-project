@@ -37,7 +37,7 @@ const AsSunnahFoundation: React.FC = () => {
         <div className="relative h-[70vh] md:h-[80vh] w-full overflow-hidden">
         {/* Hero content */}
         <div className="relative z-20 container mx-auto px-4 md:px-6 h-full flex flex-col justify-center text-white">
-            <div className="max-w-4xl text-center md:text-left mt-0 md:mt-0">
+            <div className="max-w-4xl md:text-left mt-0 md:mt-0">
             <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
                 {t.heroTitle}
             </h1>
